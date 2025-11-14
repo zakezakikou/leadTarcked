@@ -18,7 +18,7 @@ export default function DashboardPage() {
     {
       id: "kdidour1234r55",
       name: "9didour",
-      email: "9didour@gmail.com",
+      email: "9didourr@gmail.com",
       company: "9didourSales",
       message: "Khorchef! khorchef! khorchef!",
       createdate: "2024-07-01T00:00:00Z",
