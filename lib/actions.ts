@@ -10,6 +10,7 @@ const LoginSchema = z.object({
 });
 
 export async function login(prevState: any, formData: FormData) {
+  console.log(formData);
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
@@ -19,16 +20,11 @@ export async function login(prevState: any, formData: FormData) {
   }
 
   try {
-    const response = await fetch(
-      /* put your link
-       */
-      ``,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const response = await fetch(`http://192.168.0.168:5000/api/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
     if (!response.ok) {
       return { error: "Invalid credentials" };
