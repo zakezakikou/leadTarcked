@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/blocks/hero-section";
 import HeroScrollDemo from "@/components/ui/container-scroll-demo";
 import HoverFooter from "@/components/blocks/hover-footer-demo";
+import { ContactSection } from "@/components/blocks/contact-section";
 
 export default function Home() {
   return (
@@ -28,8 +29,10 @@ export default function Home() {
             About Our Surfboards
           </h2>
           <p className="text-lg text-gray-700 mb-6 text-center">
-            We are passionate about crafting the finest surfboards on the market. With over 20 years of expertise, 
-            we combine traditional shaping techniques with modern innovations to deliver boards that transform your surfing experience.
+            We are passionate about crafting the finest surfboards on the
+            market. With over 20 years of expertise, we combine traditional
+            shaping techniques with modern innovations to deliver boards that
+            transform your surfing experience.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="bg-blue-50 p-6 rounded-lg">
@@ -37,7 +40,8 @@ export default function Home() {
                 Quality Materials
               </h3>
               <p className="text-gray-700">
-                We source premium foam, resin, and finishes from trusted suppliers worldwide.
+                We source premium foam, resin, and finishes from trusted
+                suppliers worldwide.
               </p>
             </div>
             <div className="bg-blue-50 p-6 rounded-lg">
@@ -45,7 +49,8 @@ export default function Home() {
                 Expert Craftsmanship
               </h3>
               <p className="text-gray-700">
-                Each board is hand-shaped by master craftsmen with decades of experience.
+                Each board is hand-shaped by master craftsmen with decades of
+                experience.
               </p>
             </div>
             <div className="bg-blue-50 p-6 rounded-lg">
@@ -75,7 +80,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Beginner Plan */}
             <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Beginner</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Beginner
+              </h3>
               <p className="text-4xl font-bold text-blue-600 mb-2">
                 $299<span className="text-lg text-gray-600">/board</span>
               </p>
@@ -114,9 +121,7 @@ export default function Home() {
 
             {/* Pro Plan */}
             <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Pro
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Pro</h3>
               <p className="text-4xl font-bold text-blue-600 mb-2">
                 $899<span className="text-lg text-gray-600">/board</span>
               </p>
@@ -135,54 +140,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="min-h-screen bg-white py-20 px-4">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
-            Contact Us
-          </h2>
-          <form className="space-y-6">
-            <div>
-              <label className="block text-gray-700 font-bold mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Your name"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-bold mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-bold mb-2">
-                Message
-              </label>
-              <textarea
-                placeholder="Tell us about your surfing style and board preferences"
-                rows={5}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
-            >
-              Get in Touch
-            </button>
-          </form>
-        </div>
-      </section>
+      <ContactSection />
 
       {/* Footer */}
       <HoverFooter />
