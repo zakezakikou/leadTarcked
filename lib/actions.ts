@@ -22,7 +22,7 @@ export async function login(prevState: any, formData: FormData) {
     const response = await fetch(
       /* put your link
        */
-      `https://your-link/api/auth/login`,
+      ``,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
