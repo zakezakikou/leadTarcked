@@ -1,34 +1,52 @@
-"use client"; 
+"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiTrash2 } from "react-icons/fi";
 
 export default function DashboardPage() {
   const [users, setUsers] = useState([
     {
-      id: "hmimed1234r55",
-      name: "hmimed",
-      email: "hmimed@gmail.com",
-      company: "Hmimed&Co",
-      message: "salam alaykom, kayn khoubz yabes?",
-      createdate: "2024-06-01T00:00:00Z",
-      status: "new",
-      remarks: "No remarks"
+      id: "",
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+      createdate: "",
+      status: "",
+      remarks: "",
     },
-    {
-      id: "kdidour1234r55",
-      name: "9didour",
-      email: "9didourr@gmail.com",
-      company: "9didourSales",
-      message: "Khorchef! khorchef! khorchef!",
-      createdate: "2024-07-01T00:00:00Z",
-      status: "new",
-      remarks: "No remarks"
-    }
   ]);
 
+  async function handleFetch() {
+    try {
+      const response = await fetch("http://192.168.0.148:5000/api/leads", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setUsers(data.data);
+      console.log(data);
+
+      return data;
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  }
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   const handleDelete = (id) => {
-    setUsers(users.filter(u => u.id !== id));
+    setUsers(users.filter((u) => u.id !== id));
   };
 
   return (
@@ -56,13 +74,18 @@ export default function DashboardPage() {
           </thead>
 
           <tbody>
-            {users.map(user => (
-              <tr key={user.id} className="border-b hover:bg-gray-50 transition-colors">
+            {users.map((user, index) => (
+              <tr
+                key={index}
+                className="border-b hover:bg-gray-50 transition-colors"
+              >
                 <td className="p-3 font-medium text-gray-700">{user.name}</td>
                 <td className="p-3 text-gray-600">{user.email}</td>
                 <td className="p-3 text-gray-600">{user.company}</td>
                 <td className="p-3 text-gray-600">{user.message}</td>
-                <td className="p-3 text-gray-600">{new Date(user.createdate).toLocaleDateString()}</td>
+                <td className="p-3 text-gray-600">
+                  {new Date(user.createdate).toLocaleDateString()}
+                </td>
                 <td className="p-3 text-gray-600">{user.status}</td>
                 <td className="p-3 text-gray-600">{user.remarks}</td>
                 <td className="p-3 text-center">

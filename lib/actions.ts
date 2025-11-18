@@ -20,7 +20,7 @@ export async function login(prevState: any, formData: FormData) {
   }
 
   try {
-    const response = await fetch(`http://192.168.0.168:5000/api/auth/login`, {
+    const response = await fetch(`http://192.168.0.148:5000/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
